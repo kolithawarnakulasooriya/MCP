@@ -4,7 +4,7 @@ import asyncio
 
 server_params = StdioServerParameters(
     command="uv", 
-    args=["run", "/Users/kolithawarnakulasooriya/Projects/MCP/zipcode/zip.py"], 
+    args=["run", "zip.py"], 
     env=None,
 )
 
@@ -15,8 +15,7 @@ async def run():
         ) as session:
             
             await session.initialize()
-            tools = await session.list_tools()
-            print(tools)
+
             result = await session.call_tool("get_zipcode_tool", arguments={"zipcode": "33162"})
             print(result)
 
